@@ -120,6 +120,7 @@ DATABASES = {
         'PASSWORD': 'f74d824af7c91252ee3ff91a86a91aff3a1c0d7c5ea62a4867fed757443138ee',
     }
 }
+
 # postgres://iassurrofknqfw:f74d824af7c91252ee3ff91a86a91aff3a1c0d7c5ea62a4867fed757443138ee@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d2k604e31kl81e
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -154,7 +155,7 @@ USE_TZ = True
 
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
-SITE_ID = 5
+SITE_ID = 6
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -178,20 +179,21 @@ EMAIL_HOST_PASSWORD = 'selmon@65'
 
 # S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = 'AKIAT47XUTHTOAG7MOPV'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'aap-bucket1'
+AWS_ACCESS_KEY_ID = 'AKIAT47XUTHTATUWWNJY'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'asp-2'
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATIC_URL = 'https://aap-bucket1.s3.ap-south-1.amazonaws.com/'
+STATIC_URL = 'https://asp-2.s3.ap-south-1.amazonaws.com/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 AWS_LOCATION = 'static'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
+AWS_S3_REGION_NAME = "ap-south-1"
+
 AWS_S3_SIGNATURE_VERSION = "s3v4"
-AWS_S3_REGION_NAME = 'ap-south-1'

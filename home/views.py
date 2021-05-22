@@ -188,5 +188,4 @@ def filter(request, role, branch):
             student = Member.objects.filter(Role='Student', Branch='Others')
 
         return render(request, 'home/students_list.html', {'students': student})
-
 '''
