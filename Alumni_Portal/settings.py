@@ -75,7 +75,7 @@ AUTHENTICATION_BACKENDS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -189,6 +189,9 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 STATIC_URL = 'https://asp-2.s3.ap-south-1.amazonaws.com/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 AWS_LOCATION = 'static'
 AWS_S3_OBJECT_PARAMETERS = {
