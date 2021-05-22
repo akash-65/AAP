@@ -75,6 +75,7 @@ AUTHENTICATION_BACKENDS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -179,19 +180,32 @@ EMAIL_HOST_PASSWORD = 'selmon@65'
 
 # S3 BUCKETS CONFIG
 
-AWS_ACCESS_KEY_ID = 'AKIAT47XUTHTATUWWNJY'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'asp-2'
+# AWS_ACCESS_KEY_ID = 'AKIAT47XUTHTATUWWNJY'
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'asp-2'
+#
+# AWS_S3_FILE_OVERWRITE = False
+# AWS_DEFAULT_ACL = None
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#
+# STATIC_URL = 'https://asp-2.s3.ap-south-1.amazonaws.com/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-STATIC_URL = 'https://asp-2.s3.ap-south-1.amazonaws.com/'
+# ********************************************************************************************************
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 AWS_LOCATION = 'static'
 AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
